@@ -1,0 +1,46 @@
+{
+  "name": "helloWorldInserter",
+  "displayName": "Hello World Inserter",
+  "description": "Inserts 'std::cout << Hello World;' into the editor.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.timere"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.timer",
+        "title": "Inset a timer"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.timer",
+        "key": "ctrl+alt+p",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.60.0",
+    "eslint": "^7.32.0",
+    "typescript": "^4.4.3",
+    "vscode-test": "^1.6.1"
+  }
+}
