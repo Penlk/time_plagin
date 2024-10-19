@@ -1,7 +1,7 @@
 {
-  "name": "helloWorldInserter",
-  "displayName": "Hello World Inserter",
-  "description": "Inserts 'std::cout << Hello World;' into the editor.",
+  "name": "extension.timer",
+  "displayName": "Insert a timer",
+  "description": "",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.60.0"
@@ -10,7 +10,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.timere"
+    "onCommand:extension.timer"
   ],
   "main": "./extension.js",
   "contributes": {
