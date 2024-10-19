@@ -17,7 +17,7 @@
     "commands": [
       {
         "command": "extension.timer",
-        "title": "Inset a timer"
+        "title": "Insert a timer"
       }
     ],
     "keybindings": [
