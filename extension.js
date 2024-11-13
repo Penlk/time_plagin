@@ -32,8 +32,8 @@ function activate(context) {
 		let linesDelete = [];
 
 		//Создание regex шаблонов
-		const regexStart = /^int TIMER_PLAGIN_START_(\d+) = clock\(\);$/;
-		const regexEnd = /^int TIMER_PLAGIN_END_(\d+) = clock\(\);$/;
+		const regexStart = /^clock_t TIMER_PLAGIN_START_(\d+) = clock\(\);$/;
+		const regexEnd = /^clock_t TIMER_PLAGIN_END_(\d+) = clock\(\);$/;
 
 		for (let i = 0; i < allLines; ++i) {
 			//Получаем очередную i-ю строку в документе
@@ -102,18 +102,18 @@ function activate(context) {
 
 			//Если есть какой-то k-ый таймер start, но нет k-ого таймера end, то создаем пару
 			if (end != -1) {
-				editor.insertSnippet(new vscode.SnippetString(`\nint ${maskEnd}${end} = clock();
+				editor.insertSnippet(new vscode.SnippetString(`\nclock_t ${maskEnd}${end} = clock();
 printf("TIMER_${end}: %f\\n", (double)(${maskEnd}${end} - ${maskStart}${end}) / CLOCKS_PER_SEC);\n`));
 
 			//Если все таймеры имеют пары, то добавить новый k-ый таймер старта
 			} else if (end == -1 && keys.length > 0){
 				let index = keys[keys.length - 1] + 1;
 
-				editor.insertSnippet(new vscode.SnippetString(`\nint ${maskStart}${index} = clock();\n`));
+				editor.insertSnippet(new vscode.SnippetString(`\nclock_t ${maskStart}${index} = clock();\n`));
 			
 			//Если нет ни одного таймера, то добавить таймер старта номер 1
 			} else {
-				editor.insertSnippet(new vscode.SnippetString(`\nint ${maskStart}1 = clock();\n`));
+				editor.insertSnippet(new vscode.SnippetString(`\nclock_t ${maskStart}1 = clock();\n`));
 			}
 		});
     });
