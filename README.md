@@ -7,4 +7,4 @@
 -Вставляется фрагмент кода, выводящий время, куда указывает курсор ввода, если триггер 1
 
 Демонстрация принципа работы:
-![](https://github.com/Penlk/time_plagin/Demonstaition.gif)
+![Alt Text](https://github.com/Penlk/time_plagin/Demonstraition.gif)
